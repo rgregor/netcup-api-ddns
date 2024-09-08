@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netcup-ddns"
+version = "0.2024.09.04"
+description = "A Python script to interact with the Netcup DNS API with strict TLS certificate verification."
+authors = [ { name="Robert Gregor", email="gimpel@gwire.de" } ]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text="GPL v3" }
+dependencies = [
+    "requests==2.32.3",
+    "typed_configparser==1.1.0",
+    "typing-extensions",
+    "nc_dnsapi @ git+https://github.com/nbuchwitz/nc_dnsapi.git@v0.1.6",
+]
+
+# TODO: tie dev tool dependency versions (probably overkill for this micro project)
+[project.optional-dependencies]
+dev = [
+    "mypy",
+    "autopep8",
+    "pip-tools",
+    'types-requests']
+
+[tool.autopep8]
+max-line-length = 120
+in-place = true
